@@ -6,8 +6,8 @@
             <label class="block uppercase tracking-wide text-grey-darker text-xs font-bold mb-2" for="name">
               Name
            </label>
-            <input [(ngModel)]="contact.name" class="appearance-none block w-full bg-grey-lighter text-grey-darker border border-grey-lighter rounded py-3 px-4 mb-3"
-              id="name" type="text" name="name" type="password" placeholder="John Doe">
+           <input [(ngModel)]="contact.name" class="appearance-none block w-full bg-grey-lighter text-grey-darker border border-grey-lighter rounded py-3 px-4 mb-3"
+             id="name" type="text" name="name" placeholder="John Doe">
           </div>
         </div>
         <div class="flex flex-wrap -mx-3 mb-6">
@@ -15,15 +15,15 @@
             <label class="block uppercase tracking-wide text-grey-darker text-xs font-bold mb-2" for="grid-email">
               Email
             </label>
-            <input [(ngModel)]="contact.name" class="appearance-none block w-full bg-grey-lighter text-grey-darker border rounded py-3 px-4 mb-3" id="grid-email"
-              type="email" name="email" placeholder="yo@company.com">
+            <input [(ngModel)]="contact.email" class="appearance-none block w-full bg-grey-lighter text-grey-darker border rounded py-3 px-4 mb-3"
+              id="grid-email" type="email" name="email" placeholder="yo@company.com">
           </div>
           <div class="w-full md:w-1/2 px-3">
-            <label class="block uppercase tracking-wide text-grey-darker text-xs font-bold mb-2" for="grid-email">
+            <label class="block uppercase tracking-wide text-grey-darker text-xs font-bold mb-2" for="grid-company">
               Company
             </label>
             <input [(ngModel)]="contact.company" class="appearance-none block w-full bg-grey-lighter text-grey-darker border border-grey-lighter rounded py-3 px-4"
-              id="grid-email" name="company" type="text" placeholder="Awesome company">
+              id="grid-company" name="company" type="text" placeholder="Awesome company">
           </div>
         </div>
         <div class="flex flex-wrap -mx-3 mb-6">
@@ -32,7 +32,7 @@
               Role
             </label>
             <input [(ngModel)]="contact.role" class="appearance-none block w-full bg-grey-lighter text-grey-darker border border-grey-lighter rounded py-3 px-4"
-             id="grid-role"  name="role" type="text" placeholder="Pure Genius">
+              id="grid-role" name="role" type="text" placeholder="Pure Genius">
           </div>
           <div class="w-full md:w-1/3 px-3 mb-6 md:mb-0">
             <label class="block uppercase tracking-wide text-grey-darker text-xs font-bold mb-2" for="grid-twitter">
@@ -55,7 +55,7 @@
               Notes
             </label>
             <textarea [(ngModel)]="contact.notes" class="appearance-none block w-full bg-grey-lighter text-grey-darker border border-grey-lighter rounded py-3 px-4 mb-3"
-              id="grid-notes" name="notes" type="password" placeholder="Things to know about this contact"></textarea>
+              id="grid-notes" name="notes" placeholder="Things to know about this contact"></textarea>
           </div>
         </div>
      
@@ -66,7 +66,10 @@
         </div>
       </form>
     </div>
-    <app-contact></app-contact>
+    <ng-container class="container" *ngFor="let contact of contacts">
+      <app-contact [contact]="contact"></app-contact>
+    </ng-container>
+
     <!-- <pre>
         {{ contact | json }}
     </pre> -->
