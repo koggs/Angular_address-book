@@ -1,4 +1,4 @@
-export interface Contact {
+export interface IContact {
   name: string;
   email: string;
   company: string;
@@ -6,4 +6,5 @@ export interface Contact {
   twitter: string;
   location: string;
   notes: string;
+  image?: string;
 }

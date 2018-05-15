@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
+import { IContact } from './contact/contact.model';
 
+import contacts from './contact/contacts-list';
 
 @Component({
   selector: 'app-root',
@@ -7,12 +9,12 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  contact: any;
-  contacts: any[] = [];
-
+  contact: IContact;
+  contacts: IContact[] = [];
+  
   constructor() {
     this.initContact();
-    this.initListOfContacts();
+    this.contacts = contacts;
   }
   createContact() {
     console.log(`Create the following contact: ${JSON.stringify(this.contact)}`);
@@ -30,30 +32,5 @@ export class AppComponent {
       location: '',
       notes: ''
     };
-  }
-
-  private initListOfContacts() {
-    this.contacts = [
-      {
-        name: 'Petra Bodman',
-        email: 'petra@test.com',
-        company: 'NN',
-        role: 'Student',
-        twitter: 'NN',
-        location: 'Stockholm',
-        notes: 'Bla',
-        image: ''
-      },
-      {
-        name: 'Agnes Konradsdottir',
-        email: 'agnes@test.com',
-        company: 'NN',
-        role: 'Student',
-        twitter: 'NN',
-        location: 'Gothenburg',
-        notes: 'Bla Bla',
-        image: ''
-      },
-    ]
   }
 }
